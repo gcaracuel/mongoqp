@@ -1,0 +1,12 @@
+################################################################
+# Global configuration
+################################################################
+log_level = "debug"
+log_format = "text"
+include_dir = "/etc/remco/resource.d/"
+pid_file    = "/var/run/remco.pid"
+
+[default_backends]
+[default_backends.env]
+    onetime = true
+    keys = ["/mongo"]

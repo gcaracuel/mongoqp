@@ -1,0 +1,14 @@
+[exec]
+  command       = "php -S0:8888 -t web"
+  kill_signal   = "SIGTERM"
+  kill_timeout  = 10
+  splay         = 10
+
+[[template]]
+  src = "/etc/remco/templates/config.php.tmpl"
+  dst = "/app/src/config.php"
+  make_directories = true
+  watch = false  
+  UID = 0
+  GID = 0
+  mode = "0644"

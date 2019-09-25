@@ -11,6 +11,8 @@ $loader = require_once __DIR__.'/../vendor/autoload.php';
 
 $app = new Application();
 
+date_default_timezone_set('UTC');
+
 require_once is_file(__DIR__.'/config.php')
     ? __DIR__.'/config.php'
     : __DIR__.'/config.php.dist';
@@ -24,7 +26,7 @@ $app->register(new TwigServiceProvider(), [
 
 $app['twig'] = $app->extend('twig', function($twig, $app) {
     $twig->getExtension('core')->setDateFormat('c');
-    $twig->getExtension('core')->setTimezone(ini_get('date.timezone'));
+    $twig->getExtension('core')->setTimezone('UTC');
     $twig->addExtension(new MongoQPExtension());
 
     return $twig;

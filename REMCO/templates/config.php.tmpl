@@ -1,0 +1,7 @@
+<?php
+
+$app['debug'] = {{ getv("/mongo/debug",  "false") }};
+$app['twig.cache_dir'] = sys_get_temp_dir() . '/mongoqp-cache';
+$app['mongodb.client.uri'] = 'mongodb://{{ getv("/mongo/username", "admin") }}:{{ getv("/mongo/password", "") }}@{{ getv("/mongo/host", "localhost") }}:{{ getv("/mongo/port", "27017") }}';
+$app['mongodb.client.uriOptions'] = [];
+$app['mongodb.client.driverOptions'] = [];
