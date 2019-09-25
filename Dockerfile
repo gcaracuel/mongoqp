@@ -1,6 +1,7 @@
 FROM bigtruedata/php-mongodb:5-apache
 
 COPY --chown=0:0 entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 WORKDIR /app
 ADD . /app
